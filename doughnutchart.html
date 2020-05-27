@@ -10,53 +10,74 @@
     </style>
     
     <div id="canvas-holder" style="width:100%">
-		<canvas id="doughnutChart"></canvas>
+        <canvas id="doughnutChart"></canvas>
+        <div style="margin-top: 1.5rem;">
+            <a id="today">Today Authorized: <b id="numt" style="color: rgb(255, 61, 103);"></b> </a>
+            <a id="yesterday">, Yesterday Settled:  <b id="numy" style="color: rgb(255, 145, 36);"></b> </a>
+        </div>
+        
     </div>
 
     <script>
-        var dataPieChart;
-        Service.getPieChart()
-            .then(response => {
-                console.log(response);
-                dataPieChart = response.data;
-                var ctx = document.getElementById('doughnutChart');
-                var myDoughnutChart = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        datasets: [{
-                            data: [
-                                response.sum.sumToday,
-                                response.sum.sumYes,
-                            ],
-                            backgroundColor: [
-                                window.chartColors.red,
-                                window.chartColors.orange,
-                            ],
-                            label: 'Dataset 1'
-                        }],
-                        labels: [
-                            'TODAY',
-                            'YESTERDAY',
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        legend: {
-                            position: 'top',
-                        },
-                        // title: {
-                        //     display: true,
-                        //     text: 'Chart.js Doughnut Chart'
-                        // },
-                        animation: {
-                            animateScale: true,
-                            animateRotate: true
-                        }
-                    }
-                });
-            })
-            .catch(error => {
-                console.log(error);
-            })
+
+    var dataPieChartToday;
+    var dataPieChartYesterday;
+    $('#numt').html(dataPieChartToday)
+    $('#numy').html(dataPieChartYesterday)
+
+    Service.getPieChart()
+        .then(response => {
+            console.log(response);
+            dataPieChartToday= response.sum.sumToday;
+            dataPieChartYesterday= response.sum.sumYes;
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+        var ctx = document.getElementById('doughnutChart');
+        var myDoughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [
+                        dataPieChartToday,
+                        dataPieChartYesterday,
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    'TODAY',
+                    'YESTERDAY',
+                ]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                // title: {
+                //     display: true,
+                //     text: 'Chart.js Doughnut Chart'
+                // },
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        });
+        // Service.getPieChart()
+        //     .then(response => {
+        //         console.log(response);
+        //         dataPieChart = response.data;
+                
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
 
 	</script>

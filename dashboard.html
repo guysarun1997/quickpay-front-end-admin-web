@@ -1,41 +1,34 @@
-  
-  <div >
-    
-    <div >
-      <div id="pageload">
-          <h3>Dashboard</้>
-      </div>
+<div >
 
-      
-   
       <class class="grid-container" style="margin-top: 2rem; " >
 
         <div class="grid-item">
           <h3>Status Today and Yesterday</h3>
-          <div id="doughnut" style="margin-top: 5rem;"></div>
+          <div id="doughnut" style="margin-top: 2rem;"></div>
         </div>
 
         <div class="grid-item" style="width: 1000px; height: 600px;">
           <h3>Transaction Status</h3>
           <div id="chart"></div>
+          </div>
 
         </class>
-        <div class="grid-item"></div>
+        
+        <div style="margin-bottom: 50px;">
+          <h3 class="text-center">New Transaction</h3>
+          <div id="newtransaction"></div>
+        </div>
 
 
       </div>
     
-        
-          
-      </div>
-    </div>
-  </div>
 </div>
 
 <script>
 
   $('#chart').load('/web/chart.html');
   $("#doughnut").load('/web/doughnutchart.html')
+  $("#newtransaction").load('/web/newtransaction.html')
 
 </script>
 

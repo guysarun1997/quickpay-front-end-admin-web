@@ -82,6 +82,11 @@ var Service = {
             if(response.status === 200){
               resolve(response.blob());
             } else {
+              if(response.status === 401) {
+                liff.logout();
+                window.localStorage.clear();
+                window.location.reload();
+              }
               reject(response);
             }
           })
@@ -108,6 +113,11 @@ var Service = {
             if(response.status === 200) {
               resolve(response.json());
             } else {
+              if(response.status === 401) {
+                liff.logout();
+                window.localStorage.clear();
+                window.location.reload();
+              }
               reject(response.json());
             }
           })
@@ -134,6 +144,11 @@ var Service = {
           if(response.status === 200) {
             resolve(response.json());
           } else {
+            if(response.status === 401) {
+              liff.logout();
+              window.localStorage.clear();
+              window.location.reload();
+            }
             reject(response.json());
           }
         })
@@ -162,6 +177,11 @@ var Service = {
             if(response.status === 200) {
               resolve(response.json());
             } else {
+              if(response.status === 401) {
+                liff.logout();
+                window.localStorage.clear();
+                window.location.reload();
+              }
               reject(response.json());
             }
           })

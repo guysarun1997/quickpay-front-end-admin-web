@@ -6,7 +6,7 @@
                 <p></p>
             </div>
         </div>
-        <div class="card" style="background-color: rgb(247, 247, 247);" >
+        <div class="card" style="background-color: rgb(247, 247, 247); margin-bottom: 50px;" >
             <h5 style="margin-left: 5rem; margin-top: 10px;" >User info</h5>
             <div>
                 <a style="margin-left: 5rem; margin-bottom: 10px;">Name</a>
@@ -112,7 +112,7 @@
     var merchantID = getParameterByName('id')
     var fil = dataGetMerchant.filter(find => find._id == merchantID)
     var dataUserMerchant = fil[0];
-   console.log(dataUserMerchant)
+    console.log(dataUserMerchant)
    
    //info user
    $('#name').attr('value', dataUserMerchant.name)

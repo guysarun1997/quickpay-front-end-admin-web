@@ -14,15 +14,19 @@
   
 </nav> -->
 <ul>
-  <li><b onclick="go2View('dashboard');">Dashboard</b></li>
-  <li><b onclick="go2View('transactions');">Transactions</b></li>
-  <li><b onclick="go2View('merchant');">Merchants</b></li>
+  <li><b id="dashboard">Dashboard</b></li>
+  <li><b id="transaction" >Transactions</b></li>
+  <li><b id="merchant" >Merchants</b></li>
   <li style="float:right"><b id="signout" href="#contact">Sign out</b></li>
-  <!-- <li style="float:right"><b class="active" ><img id="pictureUrl" style="border-style: solid; border-width: 1.5px; border-color: white;" alt="Avatar" class="avatar"></b></li> -->
+  <li style="float:right; margin-top: 6px; margin-right: 10px;"><img id="pictureUrl" style="border-style: solid; border-width: 1.5px; border-color: white;" alt="Avatar" class="avatar"></li>
 </ul>
 
 
 <script>
+  var dataGetMerchant;
+  var goMerchant;
+  var goTransaction;
+  var goDashboard;
   //console.log(pictureUrl)
   $('#pictureUrl').attr('src', pictureUrl)
 
@@ -36,11 +40,36 @@
         go2View('signin')
     }
   })
-  //console.log(pictureUrl)
+
+  $('#merchant').click( function() {
+    goMerchant = "merchant";
+    console.log(goMerchant)
+    if(goMerchant === "merchant") {
+      go2View('merchant')
+    }
+  })
+
+  $('#transaction').click( function() {
+    goTransaction = "transactions";
+    console.log(goTransaction);
+    if(goTransaction === "transactions") {
+      go2View('transactions');
+    }
+  })
+
+  $('#dashboard').click( function() {
+    goDashboard = "dashboard";
+    console.log(goDashboard);
+    if(goDashboard === "dashboard") {
+      go2View('dashboard');
+    }
+  })
   
+
 
   $('b').on('click', function(){
     $('b').removeClass('selected');
     $(this).addClass('selected');
   });
+  
 </script>

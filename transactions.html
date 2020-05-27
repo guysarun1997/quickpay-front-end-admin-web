@@ -6,37 +6,37 @@
     </div>
     <div class="body-page">
         <div class="card">
-            <nav id="navigator" class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
+            <nav id="navigator" class=" navbar-expand-lg navbar-light " style="background-color: rgba(156, 206, 238);">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="height: 2.5rem;">
+                    <ul class="navbar-nav mr-auto" >
                         <li name="All" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">ALL <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#" style="font-size: medium; color: white;">ALL <span class="sr-only">(current)</span></a>
                         </li>
                         <li name="Request" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">REQUEST <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#" style="font-size: medium ; color: white;">REQUEST <span class="sr-only">(current)</span></a>
                         </li>
-                        <li name="Initalized" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">INITALIZED</a>
+                        <li name="Initialize" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#" style="font-size: medium; color: white;">INITALIZED</a>
                         </li>
                         <li name="Authorized" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">AUTHORIZED</a>
+                            <a class="nav-link" href="#" style="font-size: medium; color: white;">AUTHORIZED</a>
                         </li>
-                        <li name="Pre-Authorized" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">DECLINED</a>
+                        <li name="Declined" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#" style="font-size: medium; color: white;">DECLINED</a>
                         </li>
                         <li name="Voided" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">VOIDED</a>
+                            <a class="nav-link" href="#" style="font-size: medium; color: white;">VOIDED</a>
                         </li>
                         <li name="Settled" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">SETTLED</a>
+                            <a class="nav-link" href="#" style="font-size: medium; color: white;">SETTLED</a>
                         </li>
                         <li name="Refunded" class="nav-item  navbarbanner clicknav">
-                            <a class="nav-link" href="#">REFUNDED</a>
+                            <a class="nav-link" href="#" style="font-size: medium; color: white;">REFUNDED</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <input id="inputSearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="search" type="button" class="btn btn-outline-success my-2 my-sm-0" >Search</button>
+                        <button id="search" type="button" class="btn btn-outline-success my-2 my-sm-0" style="background-color: white; color: rgb(152, 152, 152);" >Search</button>
                         <!-- <button id="coll" type="button" class="collapsible" >Filter</button> -->
                     </form>
                 </div>
@@ -79,7 +79,7 @@
                 </form>
             </div>
             <!-- Table -->
-            <div class="card">
+            <div >
                 <table class="centertable">
                     <thead>
                         <tr>
@@ -148,6 +148,10 @@
 
     callAPI(data, filter)
 
+    $('a').on('click', function(){
+        $('a').removeClass('selectedNav');
+        $(this).addClass('selectedNav');
+    });
 
     for (let index = 1; index <= lastPage; index++) {
         console.log(index);
@@ -301,11 +305,13 @@
                 "limit": 5,
                 "search": ""
             }
-            if(dateStartfilter || dateEndfilter === "") {
-                alert("Please Enter Date Time!");
-            } else {
-                callAPI(data, filter);
-            }
+            callAPI(data, filter);
+            // if(dateStartfilter && dateEndfilter === "") {
+            //     alert("Please Enter Date Time!");
+            //     datafilters === "between"
+            // } else {
+            //     callAPI(data, filter);
+            // }
         }
     })
 
@@ -368,8 +374,6 @@
         Service.download(objdata)
             .then(response => {
                 console.log(response);
-
-
             })
             .catch(error => {
                 console.log(error.status);

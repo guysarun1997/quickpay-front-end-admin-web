@@ -55,12 +55,12 @@
 </div>
 
 <script>
-  var dataPieChart;
+  var dataChart;
 
   Service.getPieChart()
     .then(response => {
       console.log(response);
-      dataPieChart = response.data;
+      //dataPieChart = response.data.count;
       var ctx = document.getElementById('myChart');
       var myChart = new Chart(ctx, {
           type: 'bar',
@@ -69,12 +69,12 @@
               datasets: [{
                   label: '# of Votes',
                   data: [ 
-                    dataPieChart.Declined, 
-                    dataPieChart.Authorized, 
-                    dataPieChart.Authorized_Wait_forAuthen, 
-                    dataPieChart.Voided, 
-                    dataPieChart.Settled, 
-                    dataPieChart.Unknown
+                    response.data.count.Declined, 
+                    response.data.count.Authorized, 
+                    response.data.count.Authorized_Wait_forAuthen, 
+                    response.data.count.Voided, 
+                    response.data.count.Settled, 
+                    response.data.count.Unknown
                 ],
                   backgroundColor: [
                       'rgba(54, 162, 235, 0.2)',
