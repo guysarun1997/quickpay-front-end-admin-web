@@ -1,0 +1,310 @@
+<div class="body">
+    <div class="container">
+        <div id="pageload">
+            <h1>Merchant Infomation</h1>
+            <div id="showdata">
+                <p></p>
+            </div>
+        </div>
+        <div class="card" style="background-color: rgb(247, 247, 247);" >
+            <h5 style="margin-left: 5rem; margin-top: 10px;" >User info</h5>
+            <div>
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Name</a>
+                <input id="name" type="text" class="form-control" value=""  aria-label="Username" aria-describedby="basic-addon1" style="width: 36%; margin-left: 5rem; margin-top: 10px;"> 
+            </div>
+            <div style="margin-top: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Username</a>
+                <a style="margin-left: 24.20rem; margin-bottom: 10px;">Password</a>
+            </div>
+            <div style="margin-top: 10px; " class="grid-container" >
+                <div class="grid-item">
+                    <input id="username" type="text" class="form-control" value="" aria-label="Username" aria-describedby="basic-addon1" style="width: 90%; margin-left: 5rem;"> 
+                </div>
+                <div class="grid-item">
+                    <input id="password" type="text" class="form-control" value="" aria-label="Username" aria-describedby="basic-addon1" style="width: 90%; margin-left: 5rem;"> 
+                </div>
+            </div>
+            <div style="margin-top: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Thai QR:</a>
+                <div>
+                    <a style="margin-left: 5rem; margin-bottom: 10px;">Notify Url</a>
+                </div>
+                <input id="notifyUrlQR" type="text" value="" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px;">
+                <select name="plan" id="planthaiQR" style="width: 20%; height: 35px; margin-top: 5px; margin-left: 5rem;"> 
+                    <option value="0">active:</option> 
+                    <option value="true">true</option> 
+                    <option value="false">false</option> 
+                </select> 
+            </div>
+            <br>
+            <h5 style="margin-left: 5rem; margin-top: 10px;" >Card</h5>
+            <div>
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Callback Url</a>
+                <input id="callbackUrlCard" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Notify Url</a>
+                <input id="notifyUrlCard" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Mid</a>
+                <input id="midCard" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 36%; margin-left: 5rem; margin-top: 10px;">
+                <select name="plan" id="planCard" style="width: 20%; height: 35px; margin-top: 5px; margin-left: 5rem;"> 
+                    <option value="0">active:</option> 
+                    <option value="true">true</option> 
+                    <option value="false">false</option> 
+                </select> 
+            </div>
+            <br>
+            <h5 style="margin-left: 5rem; margin-top: 10px;" >Installment</h5>
+            <div>
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Callback Url</a>
+                <input id="callbackUrlinstallment" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Notify Url</a>
+                <input id="notifyUrlinstallment" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Mid</a>
+                <input id="midinstallment" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 36%; margin-left: 5rem; margin-top: 10px;">
+                <select name="plan" id="planinstallment" style="width: 20%; height: 35px; margin-top: 5px; margin-left: 5rem;"> 
+                    <option value="0">active:</option> 
+                    <option id="ture" value="true">true</option> 
+                    <option id="false" value="false">false</option> 
+                </select> 
+            </div>
+            <br>
+            <h5 style="margin-left: 5rem; margin-top: 10px;" >Alipay</h5>
+            <div>
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Callback Url</a>
+                <input id="callbackUrlAlipay" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Notify Url</a>
+                <input id="notifyUrlAlipay" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Mid</a>
+                <input id="midAlipay" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 36%; margin-left: 5rem; margin-top: 10px;">
+                <select name="plan" id="planAlipay" style="width: 20%; height: 35px; margin-top: 5px; margin-left: 5rem;"> 
+                    <option value="0">active:</option> 
+                    <option value="true">true</option> 
+                    <option value="false" selected>false</option> 
+                </select> 
+            </div>
+            <br>
+            <h5 style="margin-left: 5rem; margin-top: 10px;">Wechat</h5>
+            <div>
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Callback Url</a>
+                <input id="callbackUrlWechat" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Notify Url</a>
+                <input id="notifyUrlWechat" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 79.5%; margin-left: 5rem; margin-top: 10px; margin-bottom: 10px;">
+                <a style="margin-left: 5rem; margin-bottom: 10px;">Mid</a>
+                <input id="midWechat" value="" type="text" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" style="width: 36%; margin-left: 5rem; margin-top: 10px;">
+                <select name="plan" id="planWechat" style="width: 20%; height: 35px; margin-top: 5px; margin-left: 5rem;"> 
+                    <option value="0">active:</option> 
+                    <option value="true">true</option> 
+                    <option value="false">false</option> 
+                </select> 
+            </div>
+            <br>
+            <div>
+                <button id="cancle" type="button" class="btn btn-outline-warning" style="margin-left: 50rem;">Cancle</button>
+                <button id="submit" type="button" style="margin-left: 1rem;" value="Submit form" class="btn btn-outline-primary">Submit</button>
+              </div>
+            <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var merchantID = getParameterByName('id')
+    var fil = dataGetMerchant.filter(find => find._id == merchantID)
+    var dataUserMerchant = fil[0];
+   console.log(dataUserMerchant)
+   
+   //info user
+   $('#name').attr('value', dataUserMerchant.name)
+   $('#username').attr('value', dataUserMerchant.username)
+   $('#password').attr('value', dataUserMerchant.password)
+   $('#notifyUrlQR').attr('value', dataUserMerchant.thaiQR.notifyUrl)
+   $('#planthaiQR').val(dataUserMerchant.thaiQR.active)
+    if(dataUserMerchant.thaiQR.active == true){
+        $('#planthaiQR').html(
+                    '<option value="0">active:</option> \
+                    <option id="ture" value="true" selected>true</option>  \
+                    <option value="false">false</option> '
+                );
+    } else  if(dataUserMerchant.thaiQR.active == false) {
+        $('#planthaiQR').html(
+            '<option value="0">active:</option> \
+            <option id="ture" value="true" >true</option>  \
+            <option value="false" selected>false</option> '
+        );
+    } else {
+        $('#planthaiQR').html('<option value="0">active:</option>');
+    }
+
+    //card
+    $('#callbackUrlCard').attr('value', dataUserMerchant.card.callbackUrl)
+    $('#notifyUrlCard').attr('value', dataUserMerchant.card.notifyUrl)
+    $('#midCard').attr('value', dataUserMerchant.card.mid)
+    if(dataUserMerchant.thaiQR.card == true) {
+        $('#planCard').html(
+                    '<option value="0">active:</option> \
+                    <option id="ture" value="true" selected>true</option>  \
+                    <option value="false">false</option> '
+                );
+    } else if(dataUserMerchant.thaiQR.card == false) {
+        $('#planCard').html(
+            '<option value="0">active:</option> \
+            <option id="ture" value="true" >true</option>  \
+            <option value="false" selected>false</option> '
+        );
+    } else {
+        $('#planCard').html('<option value="0">active:</option>');
+    }
+
+    //installment
+    $('#callbackUrlinstallment').attr('value', dataUserMerchant.installment.callbackUrl)
+    $('#notifyUrlinstallment').attr('value', dataUserMerchant.installment.notifyUrl)
+    $('#midinstallment').attr('value', dataUserMerchant.installment.mid)
+    if(dataUserMerchant.installment.active == true){
+        $('#planinstallment').html(
+                    '<option value="0">active:</option> \
+                    <option id="ture" value="true" selected>true</option>  \
+                    <option value="false">false</option> '
+                );
+    } else if(dataUserMerchant.installment.active == false) {
+        $('#planinstallment').html(
+            '<option value="0">active:</option> \
+            <option id="ture" value="true" >true</option>  \
+            <option value="false" selected>false</option> '
+        );
+    } else {
+        $('#planinstallment').html('<option value="0">active:</option>');
+    }
+
+    //Alipay
+    $('#callbackUrlAlipay').attr('value', dataUserMerchant.alipay.callbackUrl)
+    $('#notifyUrlAlipay').attr('value', dataUserMerchant.alipay.notifyUrl)
+    $('#midAlipay').attr('value', dataUserMerchant.alipay.mid)
+    if(dataUserMerchant.alipay.active == true){
+        $('#planAlipay').html(
+                    '<option value="0">active:</option> \
+                    <option id="ture" value="true" selected>true</option>  \
+                    <option value="false">false</option> '
+                );
+    } else if(dataUserMerchant.alipay.active == false) {
+        $('#planAlipay').html(
+            '<option value="0">active:</option> \
+            <option id="ture" value="true" >true</option>  \
+            <option value="false" selected>false</option> '
+        );
+    } else {
+        $('#planAlipay').html('<option value="0">active:</option>');
+    }
+
+    //Wechat
+    $('#callbackUrlWechat').attr('value', dataUserMerchant.wechat.callbackUrl)
+    $('#notifyUrlWechat').attr('value', dataUserMerchant.wechat.notifyUrl)
+    $('#midWechat').attr('value', dataUserMerchant.wechat.mid)
+    if(dataUserMerchant.wechat.active == true){
+        $('#planWechat').html(
+                    '<option value="0">active:</option> \
+                    <option id="ture" value="true" selected>true</option>  \
+                    <option value="false">false</option> '
+                );
+    } else if(dataUserMerchant.wechat.active == false) {
+        $('#planWechat').html(
+            '<option value="0">active:</option> \
+            <option id="ture" value="true" >true</option>  \
+            <option value="false" selected>false</option> '
+        );
+    } else {
+        $('#planWechat').html('<option value="0">active:</option>')
+    }
+    
+    $('#cancle').click( function() {
+        go2View('merchant');
+    })
+
+    //$.get('https://quickpay-admin-dev.advws.com/api/v1/merchant/profile')
+
+    $('#submit').click( function () {
+       //user data
+       var name = $('#name').val();
+       var username = $('#username').val();
+       var password = $('#password').val();
+       var notifyUrlQR = $('#notifyUrlQR').val();
+       var activeQR = $('#planthaiQR').val();
+       var thaiQR = {
+           notifyUrl: notifyUrlQR,
+           active: activeQR
+       }
+       // card data
+       var callbackUrlCard = $('#callbackUrlCard').val();
+       var notifyUrlCard = $('#notifyUrlCard').val();
+       var midCard = $('#midCard').val();
+       var activeCard = $('#planCard').val();
+       var card = {
+           callbackUrl: callbackUrlCard,
+           notifyUrl: notifyUrlCard,
+           mid: midCard,
+           active: activeCard
+       }
+
+       // installment
+       var callbackUrlinstallment = $('#callbackUrlinstallment').val();
+       var notifyUrlinstallment = $('#notifyUrlinstallment').val();
+       var midinstallment = $('#midinstallment').val();
+       var activeinstallment = $('#planinstallment').val();
+       var installment = {
+           callbackUrl: callbackUrlinstallment,
+           notifyUrl: notifyUrlinstallment,
+           mid: midinstallment,
+           active: activeinstallment
+       }
+
+       // alipay
+       var callbackUrlAlipay = $('#callbackUrlAlipay').val();
+       var notifyUrlAlipay = $('#notifyUrlAlipay').val();
+       var midAlipay = $('#midAlipay').val();
+       var activeAlipay = $('#planAlipay').val();
+       var alipay = {
+           callbackUrl: callbackUrlAlipay,
+           notifyUrl: notifyUrlAlipay,
+           mid: midAlipay,
+           active: activeAlipay
+       }
+
+       // Wechat
+       var callbackUrlWechat = $('#callbackUrlWechat').val();
+       var notifyUrlWechat = $('#notifyUrlWechat').val();
+       var midWechat = $('#midWechat').val();
+       var activeWechat = $('#planWechat').val();
+       var wechat = {
+           callbackUrl: callbackUrlWechat,
+           notifyUrl: notifyUrlWechat,
+           mid: midWechat,
+           active: activeWechat
+       }
+
+    //    var access_token = window.localStorage.getItem('access_token')
+    //    console.log(access_token)
+
+       var data = {
+           _id: merchantID,
+           name: name,
+           username: username,
+           password: password,
+           thaiQR: thaiQR,
+           card: card,
+           installment: installment,
+           alipay: alipay,
+           wechat: wechat
+
+       }
+       console.log(data)
+       console.log(merchantID)
+
+       Service.updateMerchant(data, merchantID)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    })
+</script>

@@ -1,0 +1,194 @@
+<!-- <div class="text-center" style="">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div> -->
+        
+        <p id="userId"></p>
+        <p id="displayName"></p>
+        <p id="statusMessage"></p>
+        <p id="getDecodedIDToken"></p>
+
+  <!-- <a href="/path/to/your.pdf">Open a PDF</a>
+
+  <a href="/path/to/your.pdf" target="_blank">Open a PDF in another tab</a> -->
+
+
+  <!-- <script>
+  //    $.get('/myendpoint', {a:'admin'}, function (res) {
+  //    console.log(res)
+  // })
+    //window.location.href = '/web/dashboard.html'
+
+  
+
+  $('#submit').click( function () {
+    var originalText  = $("#password").val();
+      console.log(originalText)
+       var hash = CryptoJS.MD5(originalText);
+  
+      const passHash=  $('#passHash').val(hash);
+      pass = (passHash[0].value)
+      var usr = $('#username').val();
+      console.log(pass)
+
+  var data = {
+    username: usr,
+    password: pass
+  }
+
+  console.log(data)
+  Service.signin(data)
+    .then(callback=>{
+      console.log(callback)
+        window.localStorage.setItem('access_token', callback.access_token)
+        alert('success')
+        $('#sidebar').load('/web/sideBar.html')
+        $('#navbar').load('/web/navBar.html')
+        go2View('dashboard')
+    })
+    .catch(err => alert('error'))
+  })
+  </script> -->
+  
+  
+
+  <!-- <script>
+    var myLiffId = "https://liff.line.me/1654233982-MLOJoK1a"
+
+    function initializeLiff(myLiffId) {
+    liff
+        .init({
+            liffId: myLiffId
+        })
+        .then(() => {
+            // start to use LIFF's api
+            initializeApp();
+        })
+        .catch((err) => {
+            document.getElementById("liffAppContent").classList.add('hidden');
+            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+        });
+    }
+
+    
+
+    function displayLiffData() {
+    document.getElementById('browserLanguage').textContent = liff.getLanguage();
+    document.getElementById('sdkVersion').textContent = liff.getVersion();
+    document.getElementById('isInClient').textContent = liff.isInClient();
+    document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
+    document.getElementById('deviceOS').textContent = liff.getOS();
+    document.getElementById('lineVersion').textContent = liff.getLineVersion();
+  }
+
+  document.getElementById('liffLoginButton').addEventListener('click', function() {
+    if (!liff.isLoggedIn()) {
+        // set `redirectUri` to redirect the user to a URL other than the endpoint URL of your LIFF app.
+        liff.login();
+    }
+});
+
+// document.getElementById('liffLogoutButton').addEventListener('click', function() {
+//     if (liff.isLoggedIn()) {
+//         liff.logout();
+//         window.location.reload();
+//     }
+// });
+
+// openWindow call
+document.getElementById('openWindowButton').addEventListener('click', function() {
+    liff.openWindow({
+        url: 'https://line.me',
+        external: true
+    });
+});
+
+// scanCode call
+document.getElementById('scanQrCodeButton').addEventListener('click', function() {
+    if (!liff.isInClient()) {
+        sendAlertIfNotInClient();
+    } else {
+    	if (liff.scanCode) {
+	        liff.scanCode().then(result => {
+	            // e.g. result = { value: "Hello LIFF app!" }
+	            const stringifiedResult = JSON.stringify(result);
+	            document.getElementById('scanQrField').textContent = stringifiedResult;
+	            toggleQrCodeReader();
+	        }).catch(err => {
+	            document.getElementById('scanQrField').textContent = "scanCode failed!";
+	        });
+    	}
+    }
+});
+
+const context = liff.getContext();
+console.log(context);
+
+
+// get access token
+document.getElementById('getAccessToken').addEventListener('click', function() {
+    if (!liff.isLoggedIn() && !liff.isInClient()) {
+            alert('To get an access token, you need to be logged in. Please tap the "login" button below and try again.');
+    } else {
+            const accessToken = liff.getAccessToken();
+            document.getElementById('accessTokenField').textContent = accessToken;
+            toggleAccessToken();
+    }
+});
+
+liff.init(() => {
+    const idToken = liff.getIDToken();
+    console.log(idToken) // print raw idToken object
+});
+
+liff.init(() => {
+    const idToken = liff.getDecodedIDToken();
+    console.log(idToken) // print decoded idToken object
+});
+
+
+// sendMessages call
+document.getElementById('sendMessageButton').addEventListener('click', function() {
+    if (!liff.isInClient()) {
+        sendAlertIfNotInClient();
+    } else {
+        liff.sendMessages([{
+            'type': 'text',
+            'text': "You've successfully sent a message! Hooray!"
+        }]).then(function() {
+            window.alert('Message sent');
+        }).catch(function(error) {
+            window.alert('Error sending message: ' + error);
+        });
+    }
+});
+
+
+
+  </script> -->
+
+<!-- <script >
+  var user = $('#username').val();    
+  var pass = $('#password').val();
+ $("#submit").click(function () {
+   $.post('/signin', {user:user, pass:pass}, function(res) {
+      console.log(res)
+      if(res.status === 'success') {
+        $('#sidebar').load('/web/sideBar.html')
+        $('#navbar').load('/web/navBar.html')
+        go2View('dashboard')
+      }  
+   })
+ })
+</script> -->
+
+
+
+
+
+
+
+
+
+

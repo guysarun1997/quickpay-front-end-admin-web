@@ -1,0 +1,115 @@
+<!-- <div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+  var dataPieChart;
+  // get data pie chart
+  Service.getPieChart()
+    .then(response => {
+      console.log(response);
+      if(response) {
+        dataPieChart = response.data;
+        console.log(dataPieChart);
+        // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Requset', dataPieChart.Request],
+        ['Unknown', dataPieChart.Unknown],
+        ['Declined', dataPieChart.Declined],
+        ['Authorized', dataPieChart.Authorized],
+        ['Authorized (Wait for Authen)', dataPieChart.Authorized_Wait_forAuthen],
+        ['Voided', dataPieChart.Voided],
+        ['Settled', dataPieChart.Settled],
+        ['TODAY', 1],
+        ['Yesterday', 1],
+        
+      ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'Transaction Status', 'width':550, 'height':400};
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  
+
+</script> -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<canvas id="myChart"></canvas>
+
+<div id="canvas-holder" style="width:40%">
+  <canvas id="chart-area"></canvas>
+</div>
+
+<script>
+  var dataPieChart;
+
+  Service.getPieChart()
+    .then(response => {
+      console.log(response);
+      dataPieChart = response.data;
+      var ctx = document.getElementById('myChart');
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ['Declined', 'Authorized', 'Authorized(wait for authen)', 'Void', 'Settled', 'Unknown'],
+              datasets: [{
+                  label: '# of Votes',
+                  data: [ 
+                    dataPieChart.Declined, 
+                    dataPieChart.Authorized, 
+                    dataPieChart.Authorized_Wait_forAuthen, 
+                    dataPieChart.Voided, 
+                    dataPieChart.Settled, 
+                    dataPieChart.Unknown
+                ],
+                  backgroundColor: [
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(213, 245, 202, 0.4)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 99, 132, 0.2)',
+                  ],
+                  borderColor: [
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(213, 245, 202, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 99, 132, 1)',
+                  ],
+                  borderWidth: 2
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+          }
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
+    
+  
+  </script>

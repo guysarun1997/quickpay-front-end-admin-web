@@ -1,0 +1,62 @@
+<script src="/web/js/Chart.min.js"></script>
+<script src="/web/js/utils.js"></script>
+
+<style>
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+    </style>
+    
+    <div id="canvas-holder" style="width:100%">
+		<canvas id="doughnutChart"></canvas>
+    </div>
+
+    <script>
+        var dataPieChart;
+        Service.getPieChart()
+            .then(response => {
+                console.log(response);
+                dataPieChart = response.data;
+                var ctx = document.getElementById('doughnutChart');
+                var myDoughnutChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [
+                                response.sum.sumToday,
+                                response.sum.sumYes,
+                            ],
+                            backgroundColor: [
+                                window.chartColors.red,
+                                window.chartColors.orange,
+                            ],
+                            label: 'Dataset 1'
+                        }],
+                        labels: [
+                            'TODAY',
+                            'YESTERDAY',
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        // title: {
+                        //     display: true,
+                        //     text: 'Chart.js Doughnut Chart'
+                        // },
+                        animation: {
+                            animateScale: true,
+                            animateRotate: true
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+	</script>

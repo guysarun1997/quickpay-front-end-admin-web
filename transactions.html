@@ -1,0 +1,383 @@
+<div>
+    <div>
+        <div id="pageload">
+            <h3>Transactions</h3>
+        </div>
+    </div>
+    <div class="body-page">
+        <div class="card">
+            <nav id="navigator" class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li name="All" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">ALL <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li name="Request" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">REQUEST <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li name="Initalized" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">INITALIZED</a>
+                        </li>
+                        <li name="Authorized" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">AUTHORIZED</a>
+                        </li>
+                        <li name="Pre-Authorized" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">DECLINED</a>
+                        </li>
+                        <li name="Voided" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">VOIDED</a>
+                        </li>
+                        <li name="Settled" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">SETTLED</a>
+                        </li>
+                        <li name="Refunded" class="nav-item  navbarbanner clicknav">
+                            <a class="nav-link" href="#">REFUNDED</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input id="inputSearch" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="search" type="button" class="btn btn-outline-success my-2 my-sm-0" >Search</button>
+                        <!-- <button id="coll" type="button" class="collapsible" >Filter</button> -->
+                    </form>
+                </div>
+            </nav>
+            <!-- colapse filter -->
+            <div style="margin-top: 10px; margin-bottom: 10px; margin-left: 2rem;">
+                <form class="form-inline my-2 my-lg-0">
+                    <select class="form-control mr-sm-2" name="plan" id="planFilters"
+                        style="width: 20%; height: 35px; margin-left: 4rem;" onchange="myFunction()">
+                        <option value="all">Select Filters:</option>
+                        <option value="today">TODAY</option>
+                        <option value="lastweek">LAST WEEK</option>
+                        <option value="lastmount">LAST MOUNTH</option>
+                        <option value="between">BETWEEN</option>
+                    </select>
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="searchfilter"
+                        type="button">Request</button>
+                    <!-- <button  type="button" class="collapsible">Search</button> -->
+
+                    <button id="download" type="button" class="btn btn-outline-success my-2 my-sm-0"
+                        style="margin-left: 10px;">
+                        <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M.5 8a.5.5 0 01.5.5V12a1 1 0 001 1h12a1 1 0 001-1V8.5a.5.5 0 011 0V12a2 2 0 01-2 2H2a2 2 0 01-2-2V8.5A.5.5 0 01.5 8z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd"
+                                d="M5 7.5a.5.5 0 01.707 0L8 9.793 10.293 7.5a.5.5 0 11.707.707l-2.646 2.647a.5.5 0 01-.708 0L5 8.207A.5.5 0 015 7.5z"
+                                clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M8 1a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 018 1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="datefilter">
+                        <h8 style="margin-left: 5px; width: 20%;">Start: <input class="form-control mr-sm-2" type="date"
+                                id="start" name="start" style="margin-left: 5px;"></h8>
+                        <h8 style="margin-left: 5px;">End:<input class="form-control mr-sm-2" type="date" id="end"
+                                name="fname" style="margin-left: 5px;"> </h8>
+                    </div>
+                </form>
+            </div>
+            <!-- Table -->
+            <div class="card">
+                <table class="centertable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Time</th>
+                            <th>Merchant</th>
+                            <th>Ref Order</th>
+                            <th>Payment Method</th>
+                            <th>Object</th>
+                            <th>Product Description</th>
+                            <th>Transaction Status</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="databody">
+                        <tr>
+                            <td id="_id">##tempdata-id##</td>
+                            <td id="status">##tempdata-createAt##</td>
+                            <td id="status">##tempdata-merchantName##</td>
+                            <td id="status">##tempdata-referenceOrder##</td>
+                            <td id="status">##tempdata-sourceType##</td>
+                            <td id="status">##tempdata-object##</td>
+                            <td id="status">##tempdata-description##</td>
+                            <td id="status">##tempdata-status##</td>
+                            <td id="status">##tempdata-amount##</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End Table -->
+            <!-- button next pages -->
+            <div id="nextpage" style="text-align: right; margin-right: 5rem;">
+                <h7>Pages</h7>
+            </div>
+            <!-- end function table -->
+        </div>
+    </div>
+</div>
+
+<script>
+    var data = "All";
+    var objdata;
+    var start;
+    var filter;
+    var templatesRows = $('#databody').html();
+    var getoption = $('#planFilters').val()
+    var date = new Date();
+    var lastPage;
+    var count = 0;
+    var lastIndex;
+    var startIndex = 0;
+    var limit = 5;
+    var counter = 1;
+    filter = {
+        "filter": "all",
+        "startTime": date,
+        "endTime": date,
+        "start": startIndex,
+        "limit": limit,
+        "search": ""
+    }
+
+    $('#datefilter').ready(function () {
+        $("h8").hide();
+    })
+
+    callAPI(data, filter)
+
+
+    for (let index = 1; index <= lastPage; index++) {
+        console.log(index);
+       
+        if(index  < 3){
+            var buttons = $('<button type="button" id="button'+index+'" value='+index+' style="border-width:0px; background-color: white; margin:5px"  >'+index+'</button>') 
+        buttons.appendTo('#nextpage'); 
+            
+        }else if(index == 3){
+            var buttonsNext = $('<button type="button" id="next" value="next" style="border-width:0px; background-color: white; margin:5px" > >> </button>') 
+            buttonsNext.appendTo('#nextpage');
+        } 
+        else{
+            
+        }
+    }
+
+    $('#search').click( function() {
+        var dataInput = $('#inputSearch').val()
+        console.log(dataInput)
+        filter.search = dataInput;
+        callAPI(data, filter)
+    })
+  
+    $('#nextpage').click( ()=> {
+        console.log(event.target.value)
+        var val = event.target.value;
+        if(val == '1'){
+            filter.start = 0;
+            counter = parseInt(val);
+            callAPI(data, filter)
+        }else if(val == 'next'){
+            counter = counter +1;
+            filter.start = ((lastIndex)+(counter*limit))-(2*limit)+1;
+            callAPI(data, filter)
+        }else{
+            var letgo = ((lastIndex)+(val*limit))-(2*limit)+1;
+            console.log(letgo)
+            counter = parseInt(val);
+            filter.start = letgo
+            callAPI(data, filter)
+        } 
+        
+        
+    })
+
+    function myFunction() {
+        var x = document.getElementById("planFilters").value;
+        console.log(x)
+        if (x === 'between') {
+            $("h8").show();
+        } else {
+            $("h8").hide();
+        }
+    }
+
+    $('#download').click(function () {
+        Service.download(objdata).then(data => {
+            console.log(objdata)
+            var a = document.createElement("a");
+            a.download = "Transection";
+            a.href = URL.createObjectURL(data);
+            document.body.appendChild(a);
+            a.click();
+            // var blob = new Blob([data], {type: "text/xml"});
+            // saveAs(blob, "test.xmp");
+            //saveAs(data, 'mypng.xlsx');
+
+        })
+        // window.location.assign("https://quickpay-admin-dev.advws.com/")
+    })
+
+
+    $('#searchfilter').click(function () {
+        var datafilters = $('#planFilters').val()
+        var dateStartfilter = $('#start').val()
+        var dateEndfilter = $('#end').val()
+
+        console.log(datafilters)
+        if(datafilters === "all") {
+            filter = {
+                "filter": datafilters,
+                "startTime": start,
+                "endTime": end,
+                "start": 0,
+                "limit": 5,
+                "search": ""
+            }
+            callAPI(data, filter)
+        }
+
+        if (datafilters === "today") {
+            console.log(datafilters)
+            const current = new Date();
+            const start = new Date((current.getFullYear()).toString() + "-" + (current.getMonth() + 1).toString() + "-" + (current.getDate()).toString())
+            console.log(start)
+            const end = new Date((current.getFullYear()).toString() + "-" + (current.getMonth() + 1).toString() + "-" + (current.getDate() + 1).toString())
+            console.log(end)
+            filter = {
+                "filter": datafilters,
+                "startTime": start,
+                "endTime": end,
+                "start": 0,
+                "limit": 5,
+                "search": ""
+            }
+            callAPI(data, filter)
+        }
+
+        if (datafilters === "lastweek") {
+            const current = new Date();
+            const start = new Date((current.getFullYear()).toString() + "-" + (current.getMonth() + 1).toString() + "-" + (current.getDate() - 7).toString())
+            console.log(start)
+            const end = new Date((current.getFullYear()).toString() + "-" + (current.getMonth() + 1).toString() + "-" + (current.getDate() + 1).toString())
+            console.log(end)
+            filter = {
+                "filter": datafilters,
+                "startTime": start,
+                "endTime": end,
+                "start": 0,
+                "limit": 5,
+                "search": ""
+            }
+            callAPI(data, filter)
+        }
+
+        if (datafilters === "lastmount") {
+            const current = new Date();
+            const start = new Date((current.getFullYear()).toString() + "-" + (current.getMonth()).toString() + "-" + (current.getDate()).toString())
+            console.log(start)
+            const end = new Date((current.getFullYear()).toString() + "-" + (current.getMonth() + 1).toString() + "-" + (current.getDate()).toString())
+            console.log(end)
+            filter = {
+                "filter": datafilters,
+                "startTime": start,
+                "endTime": end,
+                "start": 0,
+                "limit": 5,
+                "search": ""
+            }
+            callAPI(data, filter)
+        }
+
+        if (datafilters === "between") {
+            $('#datefilter').val()
+            filter = {
+                "filter": datafilters,
+                "startTime": dateStartfilter,
+                "endTime": dateEndfilter,
+                "start": 0,
+                "limit": 5,
+                "search": ""
+            }
+            if(dateStartfilter || dateEndfilter === "") {
+                alert("Please Enter Date Time!");
+            } else {
+                callAPI(data, filter);
+            }
+        }
+    })
+
+    $('.clicknav').click(function () {
+        console.log($('#navigator'))
+        data = $(this).attr('name')
+        start = $('#start').val()
+        console.log(data)
+        if (data) {
+            callAPI(data, filter)
+        }
+    })
+
+    $('#databody').html('<tr><td colspan="100%">Empty!!</td></tr>');
+    function callAPI(data, filter) {
+        Service.getTransactions(data, filter)
+            .then(response => {
+                console.log(response);
+                lastPage = response.pageIndex;
+                if(count < 1){
+                    lastIndex = response.lastIndex;
+                    count = count+1
+                }
+                if(response.access_token) {
+                    window.localStorage.setItem('access_token',response.access_token);
+                }
+                if (response.data.length >= 1) {
+                    window.localStorage.setItem('access_token', response.access_token)
+                    objdata = response.data
+                    objdata.map((obj) => {
+                      if(obj){
+                        if(obj.createAt){
+                            const monthNames = ["January", "February", "March", "April", "May", "June",
+                                "July", "August", "September", "October", "November", "December"];
+                            let dateObj = new Date(obj.createAt *1000);
+                            let month = monthNames[dateObj.getMonth()];
+                            let day = String(dateObj.getDate()).padStart(2, '0');
+            
+                            let year = dateObj.getFullYear();
+                            let output = month  + '\n'+ day  + ',' + year + ' ' +  dateObj.getHours()+":"+dateObj.getMinutes()+":"+dateObj.getSeconds();
+                        //    console.log(output)
+                            obj.createAt = output;
+                        }
+                      }
+			    });
+                    var temp = hash_replace(templatesRows, 'tempdata', objdata)
+                    $('#databody').html((temp));
+                } else {
+                    $('#databody').html('<tr><td colspan="100%">Empty!!</td></tr>');
+                }
+            })
+            .catch(error => {
+                console.log(error.status);
+                //liff.logout();
+                // window.localStorage.clear();  
+            })
+    }
+
+    function callApiDownload(objdata) {
+        Service.download(objdata)
+            .then(response => {
+                console.log(response);
+
+
+            })
+            .catch(error => {
+                console.log(error.status);
+                //liff.logout();
+                // window.localStorage.clear();  
+            })
+    }
+
+
+
+</script>

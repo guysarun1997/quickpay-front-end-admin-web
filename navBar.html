@@ -1,0 +1,46 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light " style="height: 68px; background-color:rgb(223, 225, 236); border-style: solid; border-width: 0.1px; border-color: aliceblue; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); ">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <img id="pictureUrl" style="margin-right: 10px; border-style: solid; border-width: 1.5px; border-color: white;" alt="Avatar" class="avatar">
+      <button id="signout" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="go2View('signin')">Sign out</button>
+    </div>
+  </div>
+  
+</nav> -->
+<ul>
+  <li><b onclick="go2View('dashboard');">Dashboard</b></li>
+  <li><b onclick="go2View('transactions');">Transactions</b></li>
+  <li><b onclick="go2View('merchant');">Merchants</b></li>
+  <li style="float:right"><b id="signout" href="#contact">Sign out</b></li>
+  <!-- <li style="float:right"><b class="active" ><img id="pictureUrl" style="border-style: solid; border-width: 1.5px; border-color: white;" alt="Avatar" class="avatar"></b></li> -->
+</ul>
+
+
+<script>
+  //console.log(pictureUrl)
+  $('#pictureUrl').attr('src', pictureUrl)
+
+  $('#signout').click( function () {
+    // window.localStorage.clear()
+    // go2View('signin')
+    if (liff.isLoggedIn()) {
+        liff.logout();
+        window.localStorage.clear();
+        window.location.reload();
+        go2View('signin')
+    }
+  })
+  //console.log(pictureUrl)
+  
+
+  $('b').on('click', function(){
+    $('b').removeClass('selected');
+    $(this).addClass('selected');
+  });
+</script>

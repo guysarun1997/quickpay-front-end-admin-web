@@ -1,0 +1,167 @@
+<div class="header grid-container-header" >
+  <h1 class="text-left">Quickpay </Admin>
+  <h1 style="color: #2B9CDC;"> Admin</h1>
+</div>
+
+<div class="topnav">
+  <div id="navbar"></div>
+</div>
+
+<!-- <div class="row">
+  <div class="column side">
+    <div id="sidebar"></div>
+  </div> -->
+  
+  <div class="column middle">
+    <div id="mainpage_body"></div>
+  </div>
+  
+  <div class="footer">
+    <p>Footer</p>
+  </div>
+  
+  <!-- <div class="header">
+    <h1 id="myHeader">My Header</h1>
+  </div>
+
+  <div class="topnav">
+    <div id="navbar"></div>
+  </div>
+  
+  <div class="column side">
+    <div id="sidebar"></div>
+  </div>
+
+  <div class="column middle">
+    <div id="mainpage_body"></div>
+  </div>
+
+  <div class="footer">
+    <p>Footer</p>
+  </div> -->
+
+
+  
+  <script src='/web/services/index.js' type="text/javascript"></script>
+  
+  <script src="/web/js/jwt-decode.min.js"></script>
+  
+  <script>
+    
+  
+  var all_page = ['signin', 'dashboard', 'chart', 'table', 'sideBar', 'navBar', 'edit', 'normalpage', 'transactions', 'merchant', 'doughnutchart'];
+    function page_register(){
+      for (var x = 0; x < all_page.length; x++) {
+          var prefix = '/quickpay/'
+          if (all_page[x].indexOf('/') !== -1) {
+              prefix = '/'
+          }
+          
+          console.log(prefix + all_page[x]);
+          onPageshow(prefix + all_page[x], {obj: '#mainpage_body', url: '/web/' + all_page[x] + '.html'}, function () {
+              // obj is main_div  url ,real-url
+
+              //screen_page_byname(detailofview);
+          });
+
+      }
+    } 
+    page_register();
+    if (!starturl)
+        starturl = 'signin'
+    if (starturl == '/') {
+        starturl = 'signin'
+        $ ('#mainpage_body').load('/web/signin.html')
+    }
+    if(starturl === '/undefined') {
+        starturl = 'signin'
+    }
+    console.log(starturl[1])
+    if (starturl[0] == '/') {
+        starturl = starturl.replace('/', '');
+    }
+
+    if(starturl !='signin'){
+      $('#sidebar').load('/web/sideBar.html')
+      $('#navbar').load('/web/navBar.html')
+    }
+
+    if(starturl == 'signin'){
+      $('#sidebar').html('')
+      $('#navbar').html('')
+    }
+
+    var pictureUrl;
+    // var access_token = window.localStorage.getItem('access_token')
+    // console.log(access_token)
+
+    function runApp() {
+      liff.getProfile().then(profile => {
+        // document.getElementById("pictureUrl").src = profile.pictureUrl;
+        // document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+        // document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
+        // document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
+        // document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
+        const accessTokens = liff.getAccessToken();
+        console.log(accessTokens);
+          Service.signin(accessTokens)
+            .then(callback=>{
+              console.log(callback)
+              var token = callback.access_token;
+              window.localStorage.setItem('access_token',token);
+              console.log(token)
+              var decoded = jwt_decode(token);
+              console.log(decoded);
+              if(decoded) {
+                const data = decoded.data;
+                var _id = data.userId;
+                var role = data.role;
+                pictureUrl = data.pictureUrl;
+                
+                //console.log("User ID: "+_id, "Role: "+role)
+                if(role === "normal"){
+                  $('#sidebar').load('/web/sideBar.html')
+                  $('#navbar').load('/web/navBar.html')
+                  go2View('dashboard')
+                } else {
+                  go2View('normalpage')
+                  $('#navbar').load('/web/navBar.html')
+                  $('#sidebar').html('')
+                }
+              }
+                // window.localStorage.setItem('access_token', callback.access_token)
+                // alert('success')
+                
+            })
+            .catch(err => {
+              alert('ไม่สามารถเข้าสู่ระบบ')
+              window.localStorage.clear();
+              go2View('signin')
+              window.location.reload();
+              
+            })
+        // go2View('dashboard')
+        // console.log(profile)
+        
+      }).catch(err => console.log(err));
+    }
+    liff.init({ liffId: "1654233982-MLOJoK1a" }, () => {
+      if (liff.isLoggedIn()) {
+
+        runApp()
+      }else{
+        liff.login();
+      } 
+    }, err => console.log(err));
+    
+    
+    console.log(starturl)
+    go2View(starturl);
+    
+
+   
+    
+
+      
+  
+  </script>
